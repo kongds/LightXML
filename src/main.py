@@ -195,17 +195,5 @@ if __name__ == '__main__':
         np.save(f'results/{get_exp_name()}-labels.npy', np.array(pred_labels))
         np.save(f'results/{get_exp_name()}-scores.npy', np.array(pred_scores))
         sys.exit(0)
-    elif args.eval_model:
-        print(f'load models/model-{get_exp_name()}.bin')
-        testloader = DataLoader(MDataset(df, 'test', model.get_fast_tokenizer(), label_map, args.max_len),
-                                batch_size=64, num_workers=0, 
-                                shuffle=False)
-        model.load_state_dict(torch.load(f'models/model-{get_exp_name()}.bin'))
-        model = model.cuda()
-
-        print(len(df[df.dataType == 'test']))
-        pred_scores, _ = model.one_epoch(0, testloader, None, mode='test')
-        np.save(f'results/{get_exp_name()}-scores.npy', np.array(pred_scores))
-        sys.exit(0)
 
     train(model, df, label_map)

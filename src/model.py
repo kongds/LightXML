@@ -181,7 +181,7 @@ class LightXML(nn.Module):
             tokenizer = XLNetTokenizer.from_pretrained('xlnet-base-cased') 
         else:
             tokenizer = BertWordPieceTokenizer(
-                "/home/royokong/bert-models/bert-base-uncased/vocab.txt",
+                "data/.bert-base-uncased-vocab.txt",
                 lowercase=True)
         return tokenizer
 
