@@ -1,0 +1,10 @@
+tokenizers==0.7.0
+numpy==1.18.5
+pandas==1.0.4
+tqdm==4.46.1
+scipy==1.4.1
+transformers==2.11.0
+apex==0.9.10dev
+scikit_learn==0.23.2
+torch==1.5.1
+numpy=1.18.5
