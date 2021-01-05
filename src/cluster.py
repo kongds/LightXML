@@ -81,7 +81,7 @@ if __name__ == '__main__':
         mlb = build_tree_by_level('./data/Amazon-670K/train_v1.txt', 
                                   './data/Amazon-670K/train_labels.txt',
                                   1e-4, 100, [], './data/Amazon-670K/label_group'+args.id)
-        groups = np.load('./data/Amazon-670K/label_group{args.id}-last.npy')
+        groups = np.load(f'./data/Amazon-670K/label_group{args.id}-last.npy')
         new_group = []
         for group in groups:
             new_group.append([mlb.classes_[i] for i in group])
@@ -90,8 +90,8 @@ if __name__ == '__main__':
         mlb = build_tree_by_level('./data/Wiki-500K/train.txt', 
                                   './data/Wiki-500K/train_labels.txt',
                                   1e-4, 8, [11, 14, 17], './data/Wiki-500K/groups')
-        groups = np.load('./data/Wiki-500K/groups-last{args.id}.npy')
+        groups = np.load(f'./data/Wiki-500K/groups-last{args.id}.npy')
         new_group = []
         for group in groups:
             new_group.append([mlb.classes_[i] for i in group])
-        np.save('./data/Wiki-500K/label_group{args.id}.npy', np.array(new_group))
+        np.save(f'./data/Wiki-500K/label_group{args.id}.npy', np.array(new_group))
