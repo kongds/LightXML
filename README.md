@@ -17,6 +17,3 @@ train and eval
 ```bash
 ./run.sh [eurlex4k|wiki31k|amazon13k|amazon670k|wiki500k]
 ```
-
-## Feedback
-if you have any question, please contact me by email j614023177@icloud.com
