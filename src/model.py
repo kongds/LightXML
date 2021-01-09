@@ -282,7 +282,7 @@ class LightXML(nn.Module):
                             log.log(f'{epoch:>2} {step:>6}: {p1:.4f}, {p3:.4f}, {p5:.4f}')
                         # NOTE: we don't reset model to train mode and keep model in eval mode
                         # which means all dropout will be remove after `eval_step` in every epoch
-                        # this tricks makes LightXML can fit quickly
+                        # this tricks makes LightXML converge fast
                         # self.train()
 
                     if self.use_swa and step % self.swa_update_step == 0:

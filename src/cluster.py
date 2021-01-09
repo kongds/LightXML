@@ -27,7 +27,7 @@ def build_tree_by_level(sparse_data_x, sparse_data_y, eps: float, max_leaf: int,
     for i in range(len(levels)-1, -1, -1):
         if os.path.exists(F'{groups_path}-Level-{i}.npy'):
             print(F'{groups_path}-Level-{i}.npy')
-            labels_list = np.load(F'{groups_path}-Level-{i}.npy')
+            labels_list = np.load(F'{groups_path}-Level-{i}.npy', allow_pickle=True)
             q = [(labels_i, labels_f[labels_i]) for labels_i in labels_list]
             break
     if q is None:
@@ -81,7 +81,7 @@ if __name__ == '__main__':
         mlb = build_tree_by_level('./data/Amazon-670K/train_v1.txt', 
                                   './data/Amazon-670K/train_labels.txt',
                                   1e-4, 100, [], './data/Amazon-670K/label_group'+args.id)
-        groups = np.load(f'./data/Amazon-670K/label_group{args.id}-last.npy')
+        groups = np.load(f'./data/Amazon-670K/label_group{args.id}-last.npy', allow_pickle=True)
         new_group = []
         for group in groups:
             new_group.append([mlb.classes_[i] for i in group])
@@ -90,7 +90,7 @@ if __name__ == '__main__':
         mlb = build_tree_by_level('./data/Wiki-500K/train.txt', 
                                   './data/Wiki-500K/train_labels.txt',
                                   1e-4, 8, [11, 14, 17], './data/Wiki-500K/groups')
-        groups = np.load(f'./data/Wiki-500K/groups-last{args.id}.npy')
+        groups = np.load(f'./data/Wiki-500K/groups-last{args.id}.npy', allow_pickle=True)
         new_group = []
         for group in groups:
             new_group.append([mlb.classes_[i] for i in group])

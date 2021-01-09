@@ -21,9 +21,9 @@ if __name__ == '__main__':
     models = [i for i in models if i != '']
     for model in models:
         print(f'loading {model}')
-        model_scores.append(np.load(f'./results/{model}-scores.npy'))
+        model_scores.append(np.load(f'./results/{model}-scores.npy', allow_pickle=True))
         if using_group:
-            model_labels.append(np.load(f'./results/{model}-labels.npy'))
+            model_labels.append(np.load(f'./results/{model}-labels.npy', allow_pickle=True))
     
     df, label_map = createDataCSV(args.dataset)
     print(f'load {args.dataset} dataset with '
