@@ -23,12 +23,13 @@ def createDataCSV(dataset):
     assert dataset in name_map
     dataset = name_map[dataset]
 
-    with open(f'./data/{dataset}/train_raw_texts.txt') as f:
+    fext = '_texts.txt' if dataset == 'Eurlex-4K' else '_raw_texts.txt'
+    with open(f'./data/{dataset}/train{fext}') as f:
         for i in tqdm.tqdm(f):
             texts.append(i.replace('\n', ''))
             dataType.append('train')
 
-    with open(f'./data/{dataset}/test_raw_texts.txt') as f:
+    with open(f'./data/{dataset}/test{fext}') as f:
         for i in tqdm.tqdm(f):
             texts.append(i.replace('\n', ''))
             dataType.append('test')
