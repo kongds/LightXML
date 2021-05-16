@@ -35,7 +35,7 @@ if [ "$1" = "amazon670k" ]; then
 	    python src/main.py --lr 1e-4 --epoch 15 --dataset amazon670k --swa --swa_warmup 4 --swa_step 3000 --batch 16 --max_len 128 --eval_step 3000 --group_y_candidate_num 2000 --group_y_candidate_topk 75 --valid  --hidden_dim 400 --group_y_group $i
 	    python src/main.py --lr 1e-4 --epoch 15 --dataset amazon670k --swa --swa_warmup 4 --swa_step 3000 --batch 16 --max_len 128 --eval_step 3000 --group_y_candidate_num 2000 --group_y_candidate_topk 75 --valid  --hidden_dim 400 --group_y_group $i --eval_model
     done
-    python src/ensemble_direct.py --model1 amazon670k_t0 --model2 amazon670k_t1 --model3 amazon670k_t3 --dataset amazon670k
+    python src/ensemble_direct.py --model1 amazon670k_t0 --model2 amazon670k_t1 --model3 amazon670k_t2 --dataset amazon670k
 elif [ "$1" = "wiki500k" ]; then
     echo start $1
 
@@ -50,7 +50,7 @@ elif [ "$1" = "wiki500k" ]; then
 	    python src/main.py --lr 1e-4 --epoch 10 --dataset wiki500k --swa --swa_warmup 4 --swa_step 3000  --batch 32 --max_len 128 --eval_step 3000  --group_y_candidate_num 2000 --group_y_candidate_topk 32 --valid --hidden_dim 500 --group_y_group $i
 	    python src/main.py --lr 1e-4 --epoch 10 --dataset wiki500k --swa --swa_warmup 4 --swa_step 3000  --batch 32 --max_len 128 --eval_step 3000  --group_y_candidate_num 2000 --group_y_candidate_topk 32 --valid --hidden_dim 500 --group_y_group $i --eval_model
     done
-    python src/ensemble_direct.py --model1 wiki500k_t0 --model2 wiki500k_t1 --model3 wiki500k_t3 --dataset wiki500k
+    python src/ensemble_direct.py --model1 wiki500k_t0 --model2 wiki500k_t1 --model3 wiki500k_t2 --dataset wiki500k
 
 elif [ "$1" = "amazoncat13k" ]; then
     echo start $1
