@@ -89,7 +89,7 @@ if __name__ == '__main__':
     elif dataset == '500k':
         mlb = build_tree_by_level('./data/Wiki-500K/train.txt', 
                                   './data/Wiki-500K/train_labels.txt',
-                                  1e-4, 8, [11, 14, 17], './data/Wiki-500K/groups')
+                                  1e-4, 100, [], './data/Wiki-500K/groups')
         groups = np.load(f'./data/Wiki-500K/groups-last{args.id}.npy', allow_pickle=True)
         new_group = []
         for group in groups:
