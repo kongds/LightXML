@@ -17,7 +17,7 @@ def get_sparse_feature(feature_file, label_file):
 def build_tree_by_level(sparse_data_x, sparse_data_y, eps: float, max_leaf: int, levels: list, groups_path):
     print('Clustering')
     sparse_x, sparse_labels = get_sparse_feature(sparse_data_x, sparse_data_y)
-    mlb = MultiLabelBinarizer()
+    mlb = MultiLabelBinarizer(sparse_output=True)
     sparse_y = mlb.fit_transform(sparse_labels)
     joblib.dump(mlb, groups_path+'mlb')
     print('Getting Labels Feature')
