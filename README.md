@@ -2,6 +2,19 @@
 
 LightXML: Transformer with dynamic negative sampling for High-Performance Extreme Multi-label Text Classiﬁcation
 
+## Requirements
+
+``` bash
+pip install -r requirements.txt
+```
+Please also install apex as follows
+``` bash
+git clone https://github.com/NVIDIA/apex
+cd apex
+python setup.py install
+```
+
+
 ## Datasets
 LightXML uses the same dataset with AttentionXML and X-Transform.
 
