@@ -185,7 +185,7 @@ if __name__ == '__main__':
                                           candidates_num=args.group_y_candidate_num),
                                  batch_size=256, num_workers=0, 
                             shuffle=False)
-        model.load_state_dict(torch.load(f'models/model-{get_exp_name()}.bin'))
+        model.load_state_dict(torch.load(f'models/model-{get_exp_name()}.bin', weights_only=True))
         model = model.cuda()
 
         print(len(df[df.dataType == 'test']))
